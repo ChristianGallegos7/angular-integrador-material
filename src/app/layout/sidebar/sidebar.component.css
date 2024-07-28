@@ -1,0 +1,16 @@
+.mat-nav-list {
+    padding: 0;
+}
+
+.mat-list-item {
+    font-size: 16px;
+    padding: 10px 16px;
+}
+
+.mat-list-item:hover {
+    background-color: #f1f1f1;
+}
+
+.mat-list-item:active {
+    background-color: #e0e0e0;
+}
