@@ -4,19 +4,23 @@
   </mat-card-header>
   <mat-card-content>
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-      
+
       <mat-form-field appearance="fill">
         <mat-label>Correo Electrónico</mat-label>
         <mat-icon matPrefix>mail</mat-icon>
         <input matInput type="email" name="email" [(ngModel)]="email" required>
-        <mat-error *ngIf="loginForm.submitted && !email">Correo electrónico es requerido</mat-error>
+        @if(loginForm.submitted && !email){
+        <mat-error>Correo electrónico es requerido</mat-error>
+        }
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Contraseña</mat-label>
         <mat-icon matPrefix>lock</mat-icon>
         <input matInput type="password" name="password" [(ngModel)]="password" required>
-        <mat-error *ngIf="loginForm.submitted && !password">Contraseña es requerida</mat-error>
+        @if (loginForm.submitted && !password) {
+        <mat-error>Contraseña es requerida</mat-error>
+        }
       </mat-form-field>
 
       <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>

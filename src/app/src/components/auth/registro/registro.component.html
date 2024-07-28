@@ -1,40 +1,47 @@
 <mat-card class="register-card">
-    <mat-card-header>
-      <mat-card-title>Registro</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-        
-        <mat-form-field appearance="fill">
-          <mat-label>Nombre Completo</mat-label>
-          <mat-icon matPrefix>person</mat-icon>
-          <input matInput name="fullName" [(ngModel)]="fullName" required>
-          <mat-error *ngIf="registerForm.submitted && !fullName">Nombre completo es requerido</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field appearance="fill">
-          <mat-label>Correo Electrónico</mat-label>
-          <mat-icon matPrefix>mail</mat-icon>
-          <input matInput type="email" name="email" [(ngModel)]="email" required>
-          <mat-error *ngIf="registerForm.submitted && !email">Correo electrónico es requerido</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field appearance="fill">
-          <mat-label>Contraseña</mat-label>
-          <mat-icon matPrefix>lock</mat-icon>
-          <input matInput type="password" name="password" [(ngModel)]="password" required>
-          <mat-error *ngIf="registerForm.submitted && !password">Contraseña es requerida</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field appearance="fill">
-          <mat-label>Confirmar Contraseña</mat-label>
-          <mat-icon matPrefix>lock</mat-icon>
-          <input matInput type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required>
-          <mat-error *ngIf="registerForm.submitted && !confirmPassword">Confirmar contraseña es requerido</mat-error>
-        </mat-form-field>
-  
-        <button mat-raised-button color="primary" type="submit">Registrar</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-  
+  <mat-card-header>
+    <mat-card-title>Registro</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre Completo</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput name="fullName" [(ngModel)]="fullName" required>
+        @if(registerForm.submitted && !fullName){
+        <mat-error>Nombre completo es requerido</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Correo Electrónico</mat-label>
+        <mat-icon matPrefix>mail</mat-icon>
+        <input matInput type="email" name="email" [(ngModel)]="email" required>
+        @if(registerForm.submitted && !email){
+        <mat-error>Correo electrónico es requerido</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput type="password" name="password" [(ngModel)]="password" required>
+        @if(registerForm.submitted && !password){
+        <mat-error>Contraseña es requerida</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Confirmar Contraseña</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+        @if(registerForm.submitted && !confirmPassword){
+        <mat-error>Confirmar contraseña es requerido</mat-error>
+        }
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Registrar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
